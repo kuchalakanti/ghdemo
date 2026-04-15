@@ -8,5 +8,12 @@ jobs:
       APP_ENV: "test"
    runs-on: ubuntu-latest
    steps:
-     - run: echo Hello $APP_ENV
+      - name: Use variables
+        # Step level: Available only to this step
+        env:
+          APP_ENV: "uat"
+        run: echo $APP_ENV
+
+
+    
   
