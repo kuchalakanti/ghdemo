@@ -1,19 +1,17 @@
-name: env
-on: workflow_dispatch
-env:
-  APP_ENV: "dev"
+name: Inputs Demo
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Choose the eniornment to deploy
+        required: true
+        default: dev
 jobs:
-  dev:
-   env:
-      APP_ENV: "test"
+  input:
    runs-on: ubuntu-latest
    steps:
-      - name: Use variables
-        # Step level: Available only to this step
-        env:
-          APP_ENV: "uat"
-        run: echo $APP_ENV
-
+     - run: echo "Deploy the application to ${{inputs.environment}}"
+    
 
     
   
