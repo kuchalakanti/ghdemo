@@ -3,7 +3,9 @@ on: workflow_dispatch
 env:
   APP_ENV: "dev"
 jobs:
-  env:
+  dev:
+   env:
+      APP_ENV: "test"
    runs-on: ubuntu-latest
    steps:
      - run: echo Hello $APP_ENV
