@@ -1,26 +1,12 @@
 name: Inputs Demo
 on:
   workflow_dispatch:
-    inputs:
-      environment:
-        description: Choose the eniornment to deploy
-        required: true
-        default: dev
-        type: choice
-        options:
-          - dev
-          - prod
-          - uat
-      artifact-tag:
-        description: choose the tag to deploy
-        required: true
 jobs:
-  inputs-demo:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy the APP
-        run: echo "Deploy the ${{ inputs.artifact-tag }} application to ${{inputs.environment}}"
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: execute the code
+        run: cat index.html
 
-
-    
-  
